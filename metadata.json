@@ -1,6 +1,6 @@
 {
   "name": "Aplikasi Tamplate Soal Ujian 2026",
-  "description": "Aplikasi penyusun dan eksportir naskah soal Sumatif Tengah Semester Tauhid Kelas 3 dengan Bagian A Pilihan Ganda, Bagian B Isian Singkat, dan Bagian C Uraian terintegrasi Google Docs.",
+  "description": "Aplikasi penyusun dan eksportir naskah soal Sumatif Tengah Semester dengan Bagian A Pilihan Ganda, Bagian B Isian Singkat, dan Bagian C Uraian terintegrasi Google Docs.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

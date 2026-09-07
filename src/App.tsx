@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
-import { initialExamData } from './data/initialExam';
-import { ExamData, OptionNumberingStyle, QuestionNumberingStyle, FontChoice } from './types';
-import { ExamPaperView } from './components/ExamPaperView';
-import { GoogleDocsExportModal } from './components/GoogleDocsExportModal';
-import { ExamEditorModal } from './components/ExamEditorModal';
-import { generateExamPlainText } from './lib/googleDocs';
+import React, { useState } from "react";
+import { initialExamData } from "./data/initialExam";
+import {
+  ExamData,
+  OptionNumberingStyle,
+  QuestionNumberingStyle,
+  FontChoice,
+} from "./types";
+import { ExamPaperView } from "./components/ExamPaperView";
+import { GoogleDocsExportModal } from "./components/GoogleDocsExportModal";
+import { ExamEditorModal } from "./components/ExamEditorModal";
+import { generateExamPlainText } from "./lib/googleDocs";
 import {
   Copy,
   Edit3,
@@ -16,13 +21,15 @@ import {
   Layers,
   Sparkles,
   Info,
-} from 'lucide-react';
+} from "lucide-react";
 
 export default function App() {
   const [examData, setExamData] = useState<ExamData>(initialExamData);
-  const [optionStyle, setOptionStyle] = useState<OptionNumberingStyle>('numbers');
-  const [questionNumbering, setQuestionNumbering] = useState<QuestionNumberingStyle>('continuous');
-  const [fontChoice, setFontChoice] = useState<FontChoice>('arial');
+  const [optionStyle, setOptionStyle] =
+    useState<OptionNumberingStyle>("numbers");
+  const [questionNumbering, setQuestionNumbering] =
+    useState<QuestionNumberingStyle>("continuous");
+  const [fontChoice, setFontChoice] = useState<FontChoice>("arial");
   const [showAnswerKey, setShowAnswerKey] = useState<boolean>(false);
   const [isExportModalOpen, setIsExportModalOpen] = useState<boolean>(false);
   const [isEditorModalOpen, setIsEditorModalOpen] = useState<boolean>(false);
@@ -65,7 +72,8 @@ export default function App() {
                 </span>
               </div>
               <p className="text-xs text-stone-500">
-                {examData.header.subject} • Format lengkap: Bagian A (PG), Bagian B (Isian), Bagian C (Uraian)
+                {examData.header.subject} • Format lengkap: Bagian A (PG),
+                Bagian B (Isian), Bagian C (Uraian)
               </p>
             </div>
           </div>
@@ -89,7 +97,9 @@ export default function App() {
               {copyToast ? (
                 <>
                   <Check className="w-4 h-4 text-emerald-600" />
-                  <span className="text-emerald-700 font-semibold">Tersalin!</span>
+                  <span className="text-emerald-700 font-semibold">
+                    Tersalin!
+                  </span>
                 </>
               ) : (
                 <>
@@ -122,10 +132,16 @@ export default function App() {
                 A. Pilihan Ganda: <strong>1 – {countA}</strong>
               </span>
               <span className="bg-blue-100/60 text-blue-900 px-2 py-0.5 rounded border border-blue-200 font-medium">
-                B. Isian Singkat: <strong>{countA + 1} – {countA + countB}</strong>
+                B. Isian Singkat:{" "}
+                <strong>
+                  {countA + 1} – {countA + countB}
+                </strong>
               </span>
               <span className="bg-purple-100/60 text-purple-900 px-2 py-0.5 rounded border border-purple-200 font-medium">
-                C. Uraian: <strong>{countA + countB + 1} – {totalCount}</strong>
+                C. Uraian:{" "}
+                <strong>
+                  {countA + countB + 1} – {totalCount}
+                </strong>
               </span>
             </div>
 
@@ -157,10 +173,16 @@ export default function App() {
                 <span className="text-stone-500">Nomor:</span>
                 <select
                   value={questionNumbering}
-                  onChange={(e) => setQuestionNumbering(e.target.value as QuestionNumberingStyle)}
+                  onChange={(e) =>
+                    setQuestionNumbering(
+                      e.target.value as QuestionNumberingStyle,
+                    )
+                  }
                   className="bg-white border border-stone-300 rounded px-2 py-1 text-xs text-stone-800 font-medium focus:outline-none focus:ring-1 focus:ring-blue-500"
                 >
-                  <option value="continuous">Berlanjut (1 – {totalCount})</option>
+                  <option value="continuous">
+                    Berlanjut (1 – {totalCount})
+                  </option>
                   <option value="section">Per Bagian (1–10, 1–10, 1–5)</option>
                 </select>
               </div>
@@ -171,12 +193,12 @@ export default function App() {
                 onClick={() => setShowAnswerKey(!showAnswerKey)}
                 className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-semibold border transition-colors ${
                   showAnswerKey
-                    ? 'bg-emerald-600 text-white border-emerald-700'
-                    : 'bg-white text-stone-700 border-stone-300 hover:bg-stone-100'
+                    ? "bg-emerald-600 text-white border-emerald-700"
+                    : "bg-white text-stone-700 border-stone-300 hover:bg-stone-100"
                 }`}
               >
                 <Key className="w-3.5 h-3.5" />
-                {showAnswerKey ? 'Sembunyikan Kunci' : 'Tampilkan Kunci'}
+                {showAnswerKey ? "Sembunyikan Kunci" : "Tampilkan Kunci"}
               </button>
             </div>
           </div>
@@ -192,13 +214,17 @@ export default function App() {
             <strong>Penataan Naskah Sesuai Permintaan:</strong>
             <ul className="list-disc list-inside mt-0.5 space-y-0.5 text-blue-800">
               <li>
-                <strong>Bagian B</strong> telah ditambahkan sebagai soal isian singkat dengan materi Tauhid Kelas 3 (mengesakan Allah, ciptaan Allah, syahadat, shalat, sifat muslim).
+                <strong>Bagian B</strong> telah ditambahkan sebagai soal isian
+                singkat dengan materi Tauhid Kelas 3 (mengesakan Allah, ciptaan
+                Allah, syahadat, shalat, sifat muslim).
               </li>
               <li>
-                <strong>Bagian C</strong> menjadi soal uraian dengan nomor soal berlanjut dari nomor akhir Bagian B.
+                <strong>Bagian C</strong> menjadi soal uraian dengan nomor soal
+                berlanjut dari nomor akhir Bagian B.
               </li>
               <li>
-                Format penulisan, font, dan titik-titik jawaban lembar kerja siswa seragam dan konsisten.
+                Format penulisan, font, dan titik-titik jawaban lembar kerja
+                siswa seragam dan konsisten.
               </li>
             </ul>
           </div>
@@ -216,7 +242,7 @@ export default function App() {
 
       {/* Floating Footer Note (Hidden on print) */}
       <footer className="no-print py-4 text-center text-xs text-stone-500 border-t border-stone-200 bg-white">
-        <p>Naskah Soal Sumatif Tengah Semester • Tauhid Kelas 3 SD • Terintegrasi Google Docs</p>
+        <p>Naskah Soal Sumatif • SD Shahaba • Terintegrasi Google Docs</p>
       </footer>
 
       {/* Export to Google Docs Modal */}
