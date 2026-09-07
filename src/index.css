@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #f8fafc;
+    color: #0f172a;
+  }
+}
+
+.font-exam-arial {
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+.font-exam-roboto, .font-roboto {
+  font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+}
+
+.font-exam-roboto-serif, .font-roboto-serif {
+  font-family: 'Roboto Serif', Georgia, 'Times New Roman', serif;
+}
+
+.font-exam-figtree {
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+}
+
+.font-exam-spectral {
+  font-family: 'Spectral', Georgia, 'Times New Roman', serif;
+}
+
+.font-rubik {
+  font-family: 'Rubik', system-ui, -apple-system, sans-serif;
+}
+
+.font-exam-serif {
+  font-family: 'Lora', Georgia, 'Times New Roman', serif;
+}
+
+.font-exam-times {
+  font-family: 'Times New Roman', Times, 'Lora', serif;
+}
+
+.font-exam-sans {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* Official Google Sign In Button Styles */
+.gsi-material-button {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -webkit-appearance: none;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #747775;
+  border-radius: 6px;
+  box-sizing: border-box;
+  color: #1f1f1f;
+  cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  height: 40px;
+  letter-spacing: 0.25px;
+  outline: none;
+  overflow: hidden;
+  padding: 0 16px;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.gsi-material-button:hover {
+  background-color: #f8f9fa;
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+}
+
+.gsi-material-button-content-wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  height: 100%;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+}
+
+.gsi-material-button-icon {
+  height: 20px;
+  min-width: 20px;
+  width: 20px;
+  margin-right: 10px;
+}
+
+/* Print Specific Rules */
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .exam-paper-container {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+
+  .exam-paper {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 10mm 15mm !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    color: #000000 !important;
+  }
+
+  .exam-question-item {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
